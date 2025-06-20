@@ -3,7 +3,7 @@ import styles from './About.module.css';
 
 function About() {
   return (
-    <section> {/* Estilizado por selector de etiqueta en About.module.css */}
+    <section>
       <h1>Acerca de Nosotros</h1>
       <p>
         Somos una empresa apasionada por la calidad y la innovación. Desde nuestra fundación, nos hemos dedicado a ofrecer soluciones excepcionales que superan las expectativas de nuestros clientes.

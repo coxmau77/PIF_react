@@ -6,7 +6,7 @@ export function Nav() {
     return (
         <nav>
             <h1>
-                <Link to="/">Mi Tienda</Link>
+                <Link to="/">Mi Tienda!</Link>
             </h1>
             <ul>
                 <li>
