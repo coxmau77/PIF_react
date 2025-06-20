@@ -8,14 +8,15 @@ nav {
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
+  grid-area: nav;
 }
 
-nav h1 { /* Estilos para <h1> dentro de <nav> */
+nav h1 {
   font-size: 1.8rem;
   font-weight: bold;
 }
 
-nav h1 a { /* Estilos para <a> dentro de <h1> dentro de <nav> */
+nav h1 a {
   color: white;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -25,7 +26,7 @@ nav h1 a:hover {
   color: #61dafb;
 }
 
-nav ul { /* Estilos para <ul> dentro de <nav> */
+nav ul {
   display: flex;
   list-style: none;
   margin: 0;
@@ -33,7 +34,7 @@ nav ul { /* Estilos para <ul> dentro de <nav> */
   gap: 1.8rem;
 }
 
-nav ul li a { /* Estilos para <a> dentro de <li> dentro de <ul> dentro de <nav> */
+nav ul li a {
   color: white;
   text-decoration: none;
   font-weight: 500;

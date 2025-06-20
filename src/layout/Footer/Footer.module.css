@@ -1,6 +1,5 @@
 /* src/layout/Footer/Footer.module.css */
 footer {
-    /* Estilos aplicados directamente a la etiqueta footer */
     text-align: center;
     padding: 1.5rem;
     margin-top: auto;
@@ -9,16 +8,15 @@ footer {
     background-color: #e0e0e0;
     color: #555;
     font-size: 0.95rem;
+    grid-area: footer;
 }
 
 footer p {
-    /* Estilos para <p> dentro de <footer> */
     margin-bottom: 0.5rem;
     color: #444;
 }
 
 footer small {
-    /* Estilos para <small> dentro de <footer> */
     display: block;
     font-size: 0.85rem;
     color: #666;
@@ -26,7 +24,6 @@ footer small {
 }
 
 footer a {
-    /* Estilos para <a> dentro de <footer> */
     color: #007bff;
     text-decoration: none;
     margin: 0 0.6rem;
