@@ -1,0 +1,63 @@
+/* src/layout/Nav/Nav.module.css */
+nav {
+  background-color: #282c34;
+  color: white;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+nav h1 { /* Estilos para <h1> dentro de <nav> */
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+nav h1 a { /* Estilos para <a> dentro de <h1> dentro de <nav> */
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav h1 a:hover {
+  color: #61dafb;
+}
+
+nav ul { /* Estilos para <ul> dentro de <nav> */
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.8rem;
+}
+
+nav ul li a { /* Estilos para <a> dentro de <li> dentro de <ul> dentro de <nav> */
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.05rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+  position: relative;
+}
+
+nav ul li a:hover {
+  color: #61dafb;
+  transform: translateY(-2px);
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #61dafb;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}

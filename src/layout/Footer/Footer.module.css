@@ -1,0 +1,39 @@
+/* src/layout/Footer/Footer.module.css */
+footer {
+    /* Estilos aplicados directamente a la etiqueta footer */
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: auto;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+    border-top: 1px solid #d0d0d0;
+    background-color: #e0e0e0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+footer p {
+    /* Estilos para <p> dentro de <footer> */
+    margin-bottom: 0.5rem;
+    color: #444;
+}
+
+footer small {
+    /* Estilos para <small> dentro de <footer> */
+    display: block;
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 0.8rem;
+}
+
+footer a {
+    /* Estilos para <a> dentro de <footer> */
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 0.6rem;
+    transition: text-decoration 0.3s ease, color 0.3s ease;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
