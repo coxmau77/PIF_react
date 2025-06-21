@@ -8,7 +8,7 @@ export function Nav() {
             <h1 className={styles.brand}>
                 <Link to="/" >Mi Tienda React</Link>
             </h1>
-            <ul className={styles.nav_menu}>
+            <ul>
                 <li><Link to="/" >Inicio</Link></li>
                 <li><Link to="/about">Acerca de</Link></li>
             </ul>

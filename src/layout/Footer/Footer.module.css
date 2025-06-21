@@ -19,13 +19,13 @@ footer {
     }
 }
 
-.copyright_text {
+footer p {
     margin-bottom: var(--spacing-xs);
     color: var(--text-color-inverse);
     font-size: 0.9rem;
 }
 
-.contact_info {
+footer small {
     display: block;
     font-size: 0.85rem;
     color: var(--text-color-light);
