@@ -5,16 +5,12 @@ import styles from './Nav.module.css';
 export function Nav() {
     return (
         <nav>
-            <h1>
-                <Link to="/">Mi Tienda!</Link>
+            <h1 className={styles.brand}>
+                <Link to="/" >Mi Tienda React</Link>
             </h1>
-            <ul>
-                <li>
-                    <Link to="/">Inicio</Link>
-                </li>
-                <li>
-                    <Link to="/about">Acerca de</Link>
-                </li>
+            <ul className={styles.nav_menu}>
+                <li><Link to="/" >Inicio</Link></li>
+                <li><Link to="/about">Acerca de</Link></li>
             </ul>
         </nav>
     );

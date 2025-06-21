@@ -3,7 +3,9 @@ import styles from './Home.module.css';
 
 function Home() {
   return (
-    <section> {/* Estilizado por selector de etiqueta en Home.module.css */}
+    <>
+    
+    <section className={styles.welcomeSection}>
       <h1>¡Bienvenido a nuestra tienda en línea!</h1>
       <p>
         Descubre nuestros productos únicos y las ofertas especiales que tenemos para ti. Estamos comprometidos con la calidad y tu satisfacción.
@@ -12,6 +14,10 @@ function Home() {
         Explorar Productos Ahora
       </button>
     </section>
+      <button>
+        Comprar Productos Ahora
+      </button>
+    </>
   );
 }
 

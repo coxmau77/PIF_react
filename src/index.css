@@ -1,13 +1,69 @@
-/* Los estilos del body se mantienen simples */
+/* src/index.css */
+@import url('./reset.css');
+
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --dark-color: #202020;
+
+  --text-color-base: #333;
+  --text-color-light: #666;
+  --text-color-inverse: #ffebeb;
+
+  --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-size-base: 16px;
+  --line-height-base: 1.6;
+
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  --border-radius-base: 8px;
+  --box-shadow-base: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --transition-base: all 0.3s ease;
+
+  --button-padding: 0.8rem 1.5rem;
+  --button-font-size: 1rem;
+  --button-font-weight: 600;
+  --button-margin-bottom: 1rem;
+
+  --heading-color: var(--dark-color);
+  --heading-margin-top: var(--spacing-md);
+  --heading-margin-bottom: var(--spacing-sm);
+  --h1-font-size: 2.5rem;
+  --h2-font-size: 2rem;
+  --h3-font-size: 1.75rem;
+  --h4-font-size: 1.5rem;
+  --h5-font-size: 1.25rem;
+  --h6-font-size: 1rem;
+}
+
+
+/* --- ESTILO GLOBAL DEL DOCUMENTO --- */
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f8f8f8;
-  color: #333;
+  background-color: var(--light-color);
+  color: var(--text-color-base);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 #root {
@@ -24,9 +80,152 @@ body {
 
 main {
   grid-area: main;
-  padding: 1.5rem;
+  padding: var(--spacing-md);
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
+}
+
+/* --- ESTILO GLOBAL HTML BÁSICO --- */
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: var(--transition-base);
+}
+
+a:hover {
+  text-decoration: underline;
+  color: orange;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  line-height: 1.2;
+  margin-top: var(--heading-margin-top);
+  margin-bottom: var(--heading-margin-bottom);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+}
+
+h2 {
+  font-size: var(--h2-font-size);
+}
+
+h3 {
+  font-size: var(--h3-font-size);
+}
+
+h4 {
+  font-size: var(--h4-font-size);
+}
+
+h5 {
+  font-size: var(--h5-font-size);
+}
+
+h6 {
+  font-size: var(--h6-font-size);
+}
+
+p {
+  color: var(--text-color-base);
+  margin-bottom: var(--spacing-sm);
+  line-height: var(--line-height-base);
+}
+
+button {
+  background-color: var(--primary-color);
+  color: var(--text-color-inverse);
+  padding: var(--button-padding);
+  border: none;
+  border-radius: var(--border-radius-base);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  cursor: pointer;
+  transition: var(--transition-base);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: var(--button-margin-bottom);
+}
+
+button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+form {
+  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-md);
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius-base);
+  background-color: #fff;
+  box-shadow: var(--box-shadow-base);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius-base);
+  font-size: var(--font-size-base);
+  color: var(--text-color-base);
+  box-sizing: border-box;
+  transition: var(--transition-base);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mt-1 {
+  margin-top: var(--spacing-xs);
+}
+
+.mb-1 {
+  margin-bottom: var(--spacing-xs);
 }

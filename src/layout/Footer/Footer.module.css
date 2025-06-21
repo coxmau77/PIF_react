@@ -1,36 +1,32 @@
 /* src/layout/Footer/Footer.module.css */
 footer {
-    text-align: center;
-    padding: 1.5rem;
-    margin-top: auto;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
-    border-top: 1px solid #d0d0d0;
-    background-color: #e0e0e0;
-    color: #555;
-    font-size: 0.95rem;
     grid-area: footer;
+    background-color: var(--dark-color);
+    color: var(--text-color-inverse);
+    padding: var(--spacing-md);
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+
+    & a {
+        color: var(--primary-color);
+        text-decoration: none;
+        margin: 0 var(--spacing-xs);
+
+        &:hover {
+            text-decoration: underline;
+            color: var(--light-color);
+        }
+    }
 }
 
-footer p {
-    margin-bottom: 0.5rem;
-    color: #444;
+.copyright_text {
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-color-inverse);
+    font-size: 0.9rem;
 }
 
-footer small {
+.contact_info {
     display: block;
     font-size: 0.85rem;
-    color: #666;
-    margin-top: 0.8rem;
-}
-
-footer a {
-    color: #007bff;
-    text-decoration: none;
-    margin: 0 0.6rem;
-    transition: text-decoration 0.3s ease, color 0.3s ease;
-}
-
-footer a:hover {
-    text-decoration: underline;
-    color: #0056b3;
+    color: var(--text-color-light);
 }
