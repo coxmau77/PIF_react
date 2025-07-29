@@ -2,7 +2,7 @@
 import { Nav } from '../Nav';
 import { Footer } from '../Footer';
 
-export function Layout({ children, cartItems, cartOpen, setCartOpen, updateCartItemQuantity, removeFromCart }) {
+export function Layout({ children, cartItems, cartOpen, setCartOpen, updateCartItemQuantity, removeFromCart, clearCart }) {
     return (
         <>
             <Nav
@@ -11,6 +11,7 @@ export function Layout({ children, cartItems, cartOpen, setCartOpen, updateCartI
               setCartOpen={setCartOpen}
               updateCartItemQuantity={updateCartItemQuantity}
               removeFromCart={removeFromCart}
+              clearCart={clearCart}
             />
             <main>
                 {children}

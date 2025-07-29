@@ -5,7 +5,7 @@ import styles from './Nav.module.css';
 import CartButton from './CartButton';
 import CartAside from './CartAside';
 
-export function Nav({ cartItems, cartOpen, setCartOpen, updateCartItemQuantity, removeFromCart }) {
+export function Nav({ cartItems, cartOpen, setCartOpen, updateCartItemQuantity, removeFromCart, clearCart }) {
     const asideRef = useRef(null);
 
     // Cierra el aside al hacer click fuera
@@ -45,6 +45,7 @@ export function Nav({ cartItems, cartOpen, setCartOpen, updateCartItemQuantity, 
                 cartItems={cartItems}
                 updateCartItemQuantity={updateCartItemQuantity}
                 removeFromCart={removeFromCart}
+                clearCart={clearCart}
             />
         </>
     );

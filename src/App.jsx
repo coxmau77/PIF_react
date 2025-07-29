@@ -6,9 +6,13 @@ import ProductList from './components/ProductList';
 import { useState } from 'react';
 
 function App() {
+  const clearCart = () => {
+    setCartItems([]);
+  };
   const removeFromCart = (id) => {
     setCartItems(prev => prev.filter(item => item.id !== id));
   };
+  
   const [cartItems, setCartItems] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
 
@@ -45,6 +49,7 @@ function App() {
             setCartOpen={setCartOpen}
             updateCartItemQuantity={updateCartItemQuantity}
             removeFromCart={removeFromCart}
+            clearCart={clearCart}
           >
             <Home />
           </Layout>
@@ -56,6 +61,7 @@ function App() {
             setCartOpen={setCartOpen}
             updateCartItemQuantity={updateCartItemQuantity}
             removeFromCart={removeFromCart}
+            clearCart={clearCart}
           >
             <About />
           </Layout>
@@ -67,6 +73,7 @@ function App() {
             setCartOpen={setCartOpen}
             updateCartItemQuantity={updateCartItemQuantity}
             removeFromCart={removeFromCart}
+            clearCart={clearCart}
           >
             <ProductList addToCart={addToCart} />
           </Layout>

@@ -5,7 +5,7 @@ import RemoveButton from '../RemoveButton';
 import DeleteCartBtn from '../DeleteCartBtn';
 import CheckOutBtn from '../CheckOutBtn';
 
-export default function index({ open, onClose, asideRef, cartItems, updateCartItemQuantity, removeFromCart }) {
+export default function index({ open, onClose, asideRef, cartItems, updateCartItemQuantity, removeFromCart, clearCart }) {
     const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
     return (
@@ -50,7 +50,7 @@ export default function index({ open, onClose, asideRef, cartItems, updateCartIt
                     <span>Total:</span>
                     <span className={styles.cartTotal}>${total.toFixed(2)}</span>
                 </div>
-                <DeleteCartBtn />
+                <DeleteCartBtn onClick={clearCart} />
             </div>
             <CheckOutBtn />
         </aside>
