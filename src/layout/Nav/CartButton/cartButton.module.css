@@ -1,0 +1,19 @@
+.cartButton {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 1.5rem;
+    height: auto;
+
+    :hover {
+        color: var(--primary-color);
+    }
+}
+
+.cartButton svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;    
+}

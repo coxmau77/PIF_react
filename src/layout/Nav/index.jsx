@@ -1,6 +1,7 @@
 // src/layout/Nav/index.jsx
 import { Link } from 'react-router-dom';
 import styles from './Nav.module.css';
+import CartButton from './CartButton';
 
 export function Nav() {
     return (
@@ -13,6 +14,7 @@ export function Nav() {
                 <li><Link to="/about">Acerca de</Link></li>
                 <li><Link to="/products">Productos</Link></li>
             </ul>
+            <CartButton />
         </nav>
     );
 }
