@@ -40,7 +40,10 @@ export default function SignUp() {
             <option value="admin">Administrador</option>
           </select>
         </label>
-        <button type="submit">Registrarse</button>
+        <div style={{ display: 'flex', gap: 8 }}>
+          <button type="submit">Registrarse</button>
+          <button type="button" onClick={() => navigate(-1)}>Cancelar</button>
+        </div>
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </form>
     </section>

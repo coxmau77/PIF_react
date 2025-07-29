@@ -34,7 +34,10 @@ export default function SignIn() {
         <label htmlFor="signin-password">Contraseña
           <input id="signin-password" name="password" type="password" value={form.password} onChange={handleChange} required autoComplete="current-password" />
         </label>
-        <button type="submit">Entrar</button>
+        <div style={{ display: 'flex', gap: 8 }}>
+          <button type="submit">Entrar</button>
+          <button type="button" onClick={() => navigate(-1)}>Cancelar</button>
+        </div>
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </form>
     </section>
