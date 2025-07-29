@@ -7,14 +7,15 @@ import CartButton from './CartButton';
 import CartAside from './CartAside';
 
 const navLinks = [
-  { to: '/', label: 'Inicio' },
-  { to: '/about', label: 'Acerca de' },
-  { to: '/products', label: 'Productos' },
-  { to: '/contact', label: 'Contacto' },
+    { to: '/', label: 'Inicio' },
+    { to: '/about', label: 'Acerca de' },
+    { to: '/products', label: 'Productos' },
+    { to: '/contact', label: 'Contacto' },
 ];
 
 export function Nav({ cartItems, cartOpen, setCartOpen, updateCartItemQuantity, removeFromCart, clearCart }) {
     const asideRef = useRef(null);
+    const mobileMenuRef = useRef(null);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     // Cierra el aside al hacer click fuera
@@ -32,39 +33,63 @@ export function Nav({ cartItems, cartOpen, setCartOpen, updateCartItemQuantity, 
         };
     }, [cartOpen, setCartOpen]);
 
-    // Cierra el menú móvil al navegar
+    // Cierra el menú móvil al navegar o al hacer click fuera
     useEffect(() => {
         if (!mobileMenuOpen) return;
         function closeOnResize() {
             if (window.innerWidth > 900) setMobileMenuOpen(false);
         }
+        function handleClickOutside(event) {
+            if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target)) {
+                setMobileMenuOpen(false);
+            }
+        }
         window.addEventListener('resize', closeOnResize);
-        return () => window.removeEventListener('resize', closeOnResize);
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            window.removeEventListener('resize', closeOnResize);
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
     }, [mobileMenuOpen]);
 
     return (
         <>
+
             <nav className={styles.navContainer}>
                 <h1 className={styles.brand}>
                     <Link to="/" >Mi Tienda React</Link>
                 </h1>
-                <button
-                    className={styles.navMenuToggle}
-                    aria-label="Abrir menú"
-                    onClick={() => setMobileMenuOpen(o => !o)}
-                >
-                    ☰
-                </button>
-                <ul className={mobileMenuOpen ? styles.navMobileMenu : styles.desktopMenu}>
+                <div style={{ position: 'relative', display: 'inline-block' }}>
+                  <button
+                      className={styles.navMenuToggle}
+                      aria-label="Abrir menú"
+                      onClick={() => setMobileMenuOpen(o => !o)}
+                  >
+                      ☰
+                  </button>
+                  {mobileMenuOpen && (
+                    <ul
+                      className={styles.navMobileMenu}
+                      ref={mobileMenuRef}
+                    >
+                        {navLinks.map(link => (
+                            <li key={link.to}>
+                                <Link
+                                    to={link.to}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                >
+                                    {link.label}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                  )}
+                </div>
+                <ul className={styles.desktopMenu}>
                   {navLinks.map(link => (
-                    <li key={link.to}>
-                      <Link
-                        to={link.to}
-                        onClick={mobileMenuOpen ? () => setMobileMenuOpen(false) : undefined}
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
+                      <li key={link.to}>
+                          <Link to={link.to}>{link.label}</Link>
+                      </li>
                   ))}
                 </ul>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
@@ -74,6 +99,7 @@ export function Nav({ cartItems, cartOpen, setCartOpen, updateCartItemQuantity, 
                     <UserMenu />
                 </div>
             </nav>
+
             <CartAside
                 open={cartOpen}
                 onClose={() => setCartOpen(false)}
