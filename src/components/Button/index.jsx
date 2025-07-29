@@ -1,7 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-export default function index({buttonText}) {
-  return (
-    <button>{buttonText}</button>
-  )
+function Button({ buttonText, onClick }) {
+    return (
+        <button onClick={onClick}>
+            {buttonText}
+        </button>
+    );
 }
+
+export default Button;

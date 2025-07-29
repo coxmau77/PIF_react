@@ -5,7 +5,9 @@ import RemoveButton from '../RemoveButton';
 import DeleteCartBtn from '../DeleteCartBtn';
 import CheckOutBtn from '../CheckOutBtn';
 
-export default function index({ open, onClose, asideRef }) {
+export default function index({ open, onClose, asideRef, cartItems, updateCartItemQuantity }) {
+    const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
     return (
         <aside
             ref={asideRef}
@@ -15,54 +17,39 @@ export default function index({ open, onClose, asideRef }) {
             <button className={styles.closeBtn} onClick={onClose}>×</button>
             <h2>Shopping Cart</h2>
             <ul className={styles.cartItemsAside}>
-                <li>
-                    <img src="#" alt="Product image x ..." />
-                    <div className={styles.itemDetails}>
-                        <span className={styles.itemName}>Item 1</span>
-                        <span className={styles.itemPrice}>$10.00</span>
-                    </div>
-                    <div className={styles.itemActions}>
-                        <input type="number" min="1" defaultValue="1" className={styles.itemQuantity} />
-                        <RemoveButton />
-                    </div>
-                </li>
-                <li>
-                    <img src="#" alt="Product image y ..." />
-                    <div className={styles.itemDetails}>
-                        <span className={styles.itemName}>Item 2</span>
-                        <span className={styles.itemPrice}>$20.00</span>
-                    </div>
-                    <div className={styles.itemActions}>
-                        <input type="number" min="1" defaultValue="1" className={styles.itemQuantity} />
-                        <RemoveButton />
-                    </div>
-                </li>
-                <li>
-                    <img src="#" alt="Product image z ..." />
-                    <div className={styles.itemDetails}>
-                        <span className={styles.itemName}>Item 3</span>
-                        <span className={styles.itemPrice}>$30.00</span>
-                    </div>
-                    <div className={styles.itemActions}>
-                        <input type="number" min="1" defaultValue="1" className={styles.itemQuantity} />
-                        <RemoveButton />
-                    </div>
-                </li>
+                {cartItems.length === 0 && <li>Tu carrito está vacío</li>}
+                {cartItems.map(item => (
+                    <li key={item.id}>
+                        <img src={item.image} alt={item.title} />
+                        <div className={styles.itemDetails}>
+                            <span className={styles.itemTitle}>{item.title}</span>
+                            <span className={styles.itemPrice}>${item.price.toFixed(2)}</span>
+                        </div>
+                        <div className={styles.itemActions}>
+                            <input
+                                type="number"
+                                min="1"
+                                value={item.quantity}
+                                onChange={e => updateCartItemQuantity(item.id, e.target.value)}
+                                className={styles.itemQuantity}
+                            />
+                            <RemoveButton />
+                        </div>
+                    </li>
+                ))}
             </ul>
             <div className={styles.cartSummary}>
                 <div>
-                    <span className={styles.cartItemsCount}>3</span>
+                    <span className={styles.cartItemsCount}>{cartItems.length}</span>
                     <span>items</span>
                 </div>
                 <div>
                     <span>Total:</span>
-                    <span className={styles.cartTotal}>$60.00</span>
+                    <span className={styles.cartTotal}>${total.toFixed(2)}</span>
                 </div>
                 <DeleteCartBtn />
             </div>
-
             <CheckOutBtn />
-
         </aside>
     );
 }
