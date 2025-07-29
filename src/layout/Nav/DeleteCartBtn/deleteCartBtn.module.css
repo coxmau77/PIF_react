@@ -1,0 +1,21 @@
+.deleteCartBtn {
+    /* background-color: var(--danger-color); */
+    color: var(--danger-color);
+    border: none;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: var(--danger-color);
+        color: var(--light-color);
+    }
+
+    &:active {
+        background-color: var(--warning-color);
+        color: var(--danger-color);
+    }
+}
