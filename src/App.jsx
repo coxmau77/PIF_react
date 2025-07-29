@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Layout } from './layout';
 import MainLayoutRoute from './components/MainLayoutRoute';
 import { Home, About , Contact } from './pages';
+import NotFound from './pages/NotFound';
 import ProductoDetalle from './pages/ProductoDetalle';
 import ProductList from './components/ProductList';
 import { CartProvider } from './components/Cart/CartContext';
@@ -30,6 +31,7 @@ function App() {
                 <MainLayoutRoute element={<div>Mi perfil privado</div>} />
               </ProtectedRoute>
             } />
+            <Route path="*" element={<MainLayoutRoute element={<NotFound />} />} />
           </Routes>
         </Router>
       </CartProvider>
