@@ -1,0 +1,29 @@
+.productList {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.productList ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.productList li {
+  margin-bottom: 20px;
+}
+
+.productList h2 {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.productList p {
+  font-size: 14px;
+  color: #666;
+}
