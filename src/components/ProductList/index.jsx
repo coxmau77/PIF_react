@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import styles from './ProductList.module.css';
 import Button from '../Button';
 import ProductDetail from '../ProductDetail';
+import ProductDetailLink from './ProductDetailLink';
 
 function ProductList({ addToCart }) {
     const [products, setProducts] = useState([]);
@@ -47,10 +48,13 @@ function ProductList({ addToCart }) {
                                         {product.description.split(' ').length > 12 ? '...' : ''}
                                     </p>
                                     <p>Precio: ${product.price}</p>
-                                    <Button
+                                    <div style={{ display: 'flex', gap: 8 }}>
+                                      <Button
                                         buttonText="Comprar ahora"
                                         onClick={() => addToCart(product)}
-                                    />
+                                      />
+                                      <ProductDetailLink id={product.id} />
+                                    </div>
                                 </div>
                             </li>
                         ))}

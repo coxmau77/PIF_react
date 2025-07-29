@@ -8,8 +8,10 @@ export default function ProductDetail({ product, onClose }) {
 
   useEffect(() => {
     if (product && dialogRef.current) {
-      dialogRef.current.showModal();
-    } else if (dialogRef.current) {
+      if (!dialogRef.current.open) {
+        dialogRef.current.showModal({ preventScroll: true });
+      }
+    } else if (dialogRef.current && dialogRef.current.open) {
       dialogRef.current.close();
     }
   }, [product]);
