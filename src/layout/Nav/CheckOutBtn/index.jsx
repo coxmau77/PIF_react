@@ -9,7 +9,8 @@ import styles from './checkoutBtn.module.css';
  * @param {string} [props.buttonText] - Texto del botón
  */
 
-function CheckOutBtn({ cartItems = [], phone = '0000000000', saludo = 'Hola que tal, quiero realizar el siguiente pedido:', buttonText = 'Checkout' }) {
+
+function CheckOutBtn({ cartItems = [], phone = '0000000000', saludo = 'Hola que tal, quiero realizar el siguiente pedido:', buttonText = 'Checkout', clearCart }) {
     const handleCheckout = useCallback(() => {
         if (!cartItems.length) return;
         // Formatea cada producto: "Producto x Cantidad = $Total"
@@ -27,7 +28,8 @@ function CheckOutBtn({ cartItems = [], phone = '0000000000', saludo = 'Hola que 
         // URL final
         const url = `https://wa.me/549${phone}?text=${saludoEncoded}%0A${pedido}${infoAdicional}`;
         window.open(url, '_blank');
-    }, [cartItems, phone, saludo]);
+        if (typeof clearCart === 'function') clearCart();
+    }, [cartItems, phone, saludo, clearCart]);
 
     return (
         <button className={styles.checkoutBtn} onClick={handleCheckout} disabled={!cartItems.length}>

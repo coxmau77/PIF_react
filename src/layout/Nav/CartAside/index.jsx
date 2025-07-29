@@ -52,7 +52,7 @@ export default function index({ open, onClose, asideRef, cartItems, updateCartIt
                 </div>
                 <DeleteCartBtn onClick={clearCart} />
             </div>
-            <CheckOutBtn cartItems={cartItems} phone={"1169936986"} />
+            <CheckOutBtn cartItems={cartItems} phone={"1169936986"} clearCart={clearCart} />
         </aside>
     );
 }
