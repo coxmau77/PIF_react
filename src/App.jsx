@@ -9,8 +9,10 @@ import ProductList from './components/ProductList';
 import { CartProvider } from './components/Cart/CartContext';
 import { AuthProvider } from './components/Auth/AuthContext';
 import ProtectedRoute from './components/Auth/ProtectedRoute';
+import RoleProtectedRoute from './components/Auth/RoleProtectedRoute';
 import SignUp from './pages/Auth/SignUp';
 import SignIn from './pages/Auth/SignIn';
+import Admin from './pages/Admin';
 
 function App() {
   return (
@@ -27,9 +29,14 @@ function App() {
             <Route path="/login" element={<SignIn />} />
             {/* Ejemplo de ruta protegida: */}
             <Route path="/perfil" element={
-              <ProtectedRoute>
+              <RoleProtectedRoute allowedRoles="user">
                 <MainLayoutRoute element={<div>Mi perfil privado</div>} />
-              </ProtectedRoute>
+              </RoleProtectedRoute>
+            } />
+            <Route path="/admin" element={
+              <RoleProtectedRoute allowedRoles="admin">
+                <MainLayoutRoute element={<Admin />} />
+              </RoleProtectedRoute>
             } />
             <Route path="*" element={<MainLayoutRoute element={<NotFound />} />} />
           </Routes>
