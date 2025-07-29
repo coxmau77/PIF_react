@@ -33,6 +33,7 @@ export function Nav({ cartItems, cartOpen, setCartOpen, updateCartItemQuantity, 
                     <li><Link to="/" >Inicio</Link></li>
                     <li><Link to="/about">Acerca de</Link></li>
                     <li><Link to="/products">Productos</Link></li>
+                    <li><Link to="/contact">Contacto</Link></li>
                 </ul>
                 <span onClick={() => setCartOpen(true)} style={{ cursor: 'pointer' }}>
                     <CartButton />

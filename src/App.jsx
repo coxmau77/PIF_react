@@ -1,7 +1,7 @@
 // src/App.jsx
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Layout } from './layout';
-import { Home, About } from './pages';
+import { Home, About , Contact } from './pages';
 import ProductList from './components/ProductList';
 import { useState } from 'react';
 
@@ -12,7 +12,7 @@ function App() {
   const removeFromCart = (id) => {
     setCartItems(prev => prev.filter(item => item.id !== id));
   };
-  
+
   const [cartItems, setCartItems] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
 
@@ -76,6 +76,18 @@ function App() {
             clearCart={clearCart}
           >
             <ProductList addToCart={addToCart} />
+          </Layout>
+        } />
+        <Route path="/contact" element={
+          <Layout
+            cartItems={cartItems}
+            cartOpen={cartOpen}
+            setCartOpen={setCartOpen}
+            updateCartItemQuantity={updateCartItemQuantity}
+            removeFromCart={removeFromCart}
+            clearCart={clearCart}
+          >
+            <Contact />
           </Layout>
         } />
       </Routes>
