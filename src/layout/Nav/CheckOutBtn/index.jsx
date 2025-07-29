@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import styles from './checkoutBtn.module.css';
 
 /**
@@ -8,21 +8,26 @@ import styles from './checkoutBtn.module.css';
  * @param {string} [props.saludo] - Mensaje inicial personalizado (sin espacios codificados)
  * @param {string} [props.buttonText] - Texto del botón
  */
+
 function CheckOutBtn({ cartItems = [], phone = '0000000000', saludo = 'Hola que tal, quiero realizar el siguiente pedido:', buttonText = 'Checkout' }) {
-    const handleCheckout = () => {
+    const handleCheckout = useCallback(() => {
         if (!cartItems.length) return;
         // Formatea cada producto: "Producto x Cantidad = $Total"
         const lines = cartItems.map(item =>
             `${item.title} x${item.quantity} = $${(item.price * item.quantity).toFixed(2)}`
         );
+        // Calcula el total
+        const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
         // Une con salto de línea (usando %0A para WhatsApp)
         const pedido = lines.join('%0A');
+        // Información adicional
+        const infoAdicional = `%0A--------------------%0ATotal: $${total.toFixed(2)}%0AGracias!`;
         // Mensaje inicial codificado
         const saludoEncoded = encodeURIComponent(saludo);
         // URL final
-        const url = `https://wa.me/549${phone}?text=${saludoEncoded}%0A${pedido}`;
+        const url = `https://wa.me/549${phone}?text=${saludoEncoded}%0A${pedido}${infoAdicional}`;
         window.open(url, '_blank');
-    };
+    }, [cartItems, phone, saludo]);
 
     return (
         <button className={styles.checkoutBtn} onClick={handleCheckout} disabled={!cartItems.length}>
