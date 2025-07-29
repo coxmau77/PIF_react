@@ -22,7 +22,9 @@ function CheckOutBtn({ cartItems = [], phone = '0000000000', saludo = 'Hola que 
         // Une con salto de línea (usando %0A para WhatsApp)
         const pedido = lines.join('%0A');
         // Información adicional
-        const infoAdicional = `%0A--------------------%0ATotal: $${total.toFixed(2)}%0AGracias!`;
+        const cantidadItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+        const cantidadProductos = cartItems.length;
+        const infoAdicional = `%0A--------------------%0AItems: ${cantidadProductos}%0AProductos: ${cantidadItems}%0ATotal: $${total.toFixed(2)}%0AGracias!`;
         // Mensaje inicial codificado
         const saludoEncoded = encodeURIComponent(saludo);
         // URL final
