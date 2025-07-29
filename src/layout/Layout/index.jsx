@@ -2,7 +2,7 @@
 import { Nav } from '../Nav';
 import { Footer } from '../Footer';
 
-export function Layout({ children, cartItems, cartOpen, setCartOpen, updateCartItemQuantity }) {
+export function Layout({ children, cartItems, cartOpen, setCartOpen, updateCartItemQuantity, removeFromCart }) {
     return (
         <>
             <Nav
@@ -10,6 +10,7 @@ export function Layout({ children, cartItems, cartOpen, setCartOpen, updateCartI
               cartOpen={cartOpen}
               setCartOpen={setCartOpen}
               updateCartItemQuantity={updateCartItemQuantity}
+              removeFromCart={removeFromCart}
             />
             <main>
                 {children}
@@ -18,19 +19,3 @@ export function Layout({ children, cartItems, cartOpen, setCartOpen, updateCartI
         </>
     );
 }
-
-// Usage example (e.g., in a page component)
-// import { Layout } from '../layout/Layout';
-// import { Home } from '../pages/Home';
-
-// export function SomePage() {
-//     return (
-//         <Layout
-//           cartItems={cartItems}
-//           cartOpen={cartOpen}
-//           setCartOpen={setCartOpen}
-//         >
-        //   <Home />
-//         </Layout>
-//     );
-// }

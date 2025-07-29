@@ -2,8 +2,14 @@
     cursor: pointer;
     color: var(--secondary-color);
     width: 1rem;
-
+    background-color: transparent;
+    border: none;
+    display: grid;
+    place-content: center;
+    box-shadow: none;
+    
     &:hover {
-        color: var(--danger-color);
+        color: var(--light-color);
+        background-color: var(--danger-color);
     }
 }
