@@ -1,7 +1,113 @@
+/* Responsive Nav */
+.navContainer {
+  width: 100%;
+}
+.navMenuToggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+@media (max-width: 900px) {
+  nav ul {
+    display: none;
+  }
+  .navMenuToggle {
+    display: block;
+  }
+}
+@media (max-width: 900px) {
+  .navMobileMenu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: var(--dark-color, #222);
+    width: 200px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    border-radius: 0 0 0.7rem 0.7rem;
+    z-index: 200;
+    padding: 1rem 0;
+    animation: fadeInMenu 0.2s;
+  }
+  .navMobileMenu li {
+    margin: 0;
+    padding: 0.7rem 1.5rem;
+    border-bottom: 1px solid #333;
+  }
+  .navMobileMenu li:last-child {
+    border-bottom: none;
+  }
+  .navMobileMenu li a {
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+  }
+}
+@keyframes fadeInMenu {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* User menu dropdown */
+.userMenuWrapper {
+  position: relative;
+  display: inline-block;
+}
+.userMenuBtn {
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+.userMenuBtn:hover {
+  background: #444;
+}
+.userMenuDropdown {
+  position: absolute;
+  right: 0;
+  top: 110%;
+  background: #fff;
+  color: #222;
+  min-width: 160px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  border-radius: 0.4rem;
+  z-index: 100;
+  padding: 0.5rem 0;
+  list-style: none;
+}
+.userMenuDropdown li {
+  padding: 0.5rem 1rem;
+}
+.userMenuDropdown li a,
+.userMenuDropdown li button {
+  color: #222;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0;
+}
+.userMenuDropdown li a:hover,
+.userMenuDropdown li button:hover {
+  background: #f0f0f0;
+}
 /* src/layout/Nav/Nav.module.css */
 nav {
   grid-area: nav;
   background-color: var(--dark-color);
+
   color: var(--text-color-inverse);
   padding: var(--spacing-sm) var(--spacing-md);
   display: flex;
@@ -13,39 +119,19 @@ nav {
 .brand {
   margin: 0;
   font-size: 1.8rem;
-
-  & a {
-    color: var(--text-color-inverse);
-    font-weight: 700;
-    text-decoration: none;
-
-    &:hover {
-      color: var(--primary-color);
-      text-decoration: none;
-    }
-  }
 }
 
-nav ul {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  & li {
-    margin-left: var(--spacing-md);
-
-    & a {
-      color: var(--text-color-inverse);
-      text-decoration: none;
-      padding: var(--spacing-xs) var(--spacing-sm);
-      border-radius: var(--border-radius-base);
-      transition: var(--transition-base);
-
-      &:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-        color: var(--primary-color);
-      }
-    }
-  }
+.brand a {
+  color: var(--text-color-inverse);
+  font-weight: 700;
+  text-decoration: none;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-base);
+  transition: var(--transition-base);
 }
+
+.brand a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--primary-color);
+}
+/* ...existing code... */
