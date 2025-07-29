@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import styles from './ProductList.module.css';
 import Button from '../Button';
+import ProductDetail from '../ProductDetail';
 
 function ProductList({ addToCart }) {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [selectedProduct, setSelectedProduct] = useState(null);
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
@@ -27,7 +29,12 @@ function ProductList({ addToCart }) {
                     <ul>
                         {products.map(product => (
                             <li key={product.id}>
-                                <img src={product.image} alt={product.title} />
+                                <img
+                                    src={product.image}
+                                    alt={product.title}
+                                    style={{ cursor: 'pointer' }}
+                                    onClick={() => setSelectedProduct(product)}
+                                />
                                 <div>
                                     <h2>
                                         {product.title.split(' ').slice(0, 6).join(' ')}
@@ -50,6 +57,7 @@ function ProductList({ addToCart }) {
                     </ul>
                 )}
             </div>
+            <ProductDetail product={selectedProduct} onClose={() => setSelectedProduct(null)} />
         </>
     );
 }

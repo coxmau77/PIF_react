@@ -17,22 +17,48 @@ export default function ContactForm() {
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
-      <label>
-        Nombre
-        <input name="name" value={form.name} onChange={handleChange} required />
+    <form className={styles.form} onSubmit={handleSubmit} autoComplete="on">
+      <label htmlFor="contact-name">Nombre
+        <input
+          id="contact-name"
+          name="name"
+          value={form.name}
+          onChange={handleChange}
+          required
+          autoComplete="name"
+        />
       </label>
-      <label>
-        Email
-        <input name="email" type="email" value={form.email} onChange={handleChange} required />
+      <label htmlFor="contact-email">Email
+        <input
+          id="contact-email"
+          name="email"
+          type="email"
+          value={form.email}
+          onChange={handleChange}
+          required
+          autoComplete="email"
+        />
       </label>
-      <label>
-        Fecha de nacimiento
-        <input name="birthdate" type="date" value={form.birthdate} onChange={handleChange} required />
+      <label htmlFor="contact-birthdate">Fecha de nacimiento
+        <input
+          id="contact-birthdate"
+          name="birthdate"
+          type="date"
+          value={form.birthdate}
+          onChange={handleChange}
+          required
+          autoComplete="bday-day"
+        />
       </label>
-      <label>
-        Mensaje
-        <textarea name="message" value={form.message} onChange={handleChange} required />
+      <label htmlFor="contact-message">Mensaje
+        <textarea
+          id="contact-message"
+          name="message"
+          value={form.message}
+          onChange={handleChange}
+          required
+          autoComplete="message"
+        />
       </label>
       <button type="submit">Enviar</button>
       {sent && <p className={styles.success}>¡Mensaje enviado!</p>}
