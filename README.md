@@ -1,14 +1,22 @@
-# React + Vite
+# 🛒 PIF_react
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+PIF_react es una aplicación de e-commerce desarrollada con React y Vite, que simula una tienda online moderna, profesional y responsiva. El proyecto está enfocado en buenas prácticas, modularidad y experiencia de usuario.
 
-Currently, two official plugins are available:
+## Características principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Catálogo de productos** con navegación dinámica y detalle de cada producto.
+- **Carrito de compras** persistente y fácil de usar.
+- **Autenticación de usuarios** con roles (usuario y administrador).
+- **Rutas protegidas** según el rol: los usuarios solo acceden a lo que les corresponde.
+- **Panel de administración** exclusivo para admins.
+- **Formulario de contacto** y página de información.
+- **Página 404 y acceso denegado** personalizadas, siempre dentro del layout principal.
+- **Menú de navegación responsivo** y profesional.
 
-## Expanding the ESLint configuration
+## ¿Para qué sirve?
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Este proyecto es una base sólida para aprender, practicar o iniciar un e-commerce real con React. Puedes expandirlo fácilmente agregando nuevas funcionalidades, integraciones o estilos.
 
-[PIF_react](https://github.com/coxmau77/PIF_react)
+---
+
+Desarrollado por [coxmau77/PIF_react](https://github.com/coxmau77/PIF_react) · Basado en Vite + React
