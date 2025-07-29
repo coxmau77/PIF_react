@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './contactForm.module.css';
 
 export default function ContactForm() {
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', birthdate: '', message: '' });
   const [sent, setSent] = useState(false);
 
   const handleChange = e => {
@@ -13,7 +13,7 @@ export default function ContactForm() {
     e.preventDefault();
     // Aquí podrías enviar el formulario a un backend o servicio externo
     setSent(true);
-    setForm({ name: '', email: '', message: '' });
+    setForm({ name: '', email: '', birthdate: '', message: '' });
   };
 
   return (
@@ -25,6 +25,10 @@ export default function ContactForm() {
       <label>
         Email
         <input name="email" type="email" value={form.email} onChange={handleChange} required />
+      </label>
+      <label>
+        Fecha de nacimiento
+        <input name="birthdate" type="date" value={form.birthdate} onChange={handleChange} required />
       </label>
       <label>
         Mensaje
