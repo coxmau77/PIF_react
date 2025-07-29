@@ -22,7 +22,10 @@ export default function index({ open, onClose, asideRef, cartItems, updateCartIt
                     <li key={item.id}>
                         <img src={item.image} alt={item.title} />
                         <div className={styles.itemDetails}>
-                            <span className={styles.itemTitle}>{item.title}</span>
+                            <span className={styles.itemTitle}>
+                                {item.title.split(' ').slice(0, 8).join(' ')}
+                                {item.title.split(' ').length > 8 ? ' ...' : ''}
+                                </span>
                             <span className={styles.itemPrice}>${item.price.toFixed(2)}</span>
                         </div>
                         <div className={styles.itemActions}>
