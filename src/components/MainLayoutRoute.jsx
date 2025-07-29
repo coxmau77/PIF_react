@@ -1,8 +1,7 @@
-// src/components/CartLayoutRoute/index.jsx
-import { Layout } from '../../layout';
-import { useCart } from '../Cart/CartContext';
+import { Layout } from '../layout';
+import { useCart } from './Cart/CartContext';
 
-export default function CartLayoutRoute({ element }) {
+export default function MainLayoutRoute({ element }) {
   const {
     cartItems,
     cartOpen,
