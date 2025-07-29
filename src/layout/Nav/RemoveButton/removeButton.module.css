@@ -1,0 +1,9 @@
+.removeButton {
+    cursor: pointer;
+    color: var(--secondary-color);
+    width: 1rem;
+
+    &:hover {
+        color: var(--danger-color);
+    }
+}

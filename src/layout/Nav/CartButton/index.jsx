@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './CartButton.module.css';
+import styles from './cartButton.module.css';
 
 function index() {
     return (
