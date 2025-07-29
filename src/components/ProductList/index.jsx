@@ -23,7 +23,10 @@ function ProductList() {
                 <ul>
                     {products.map(product => (
                         <li key={product.id}>
+                            <img src={product.image} alt={product.title} />
                             <h2>{product.title}</h2>
+                            <span>{product.category}</span> <br />
+                            <span>{product.rating.rate} - ({product.rating.count})</span>
                             <p>{product.description}</p>
                             <p>Precio: ${product.price}</p>
                         </li>
