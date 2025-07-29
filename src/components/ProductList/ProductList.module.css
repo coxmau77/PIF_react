@@ -1,20 +1,39 @@
 .productList {
-  max-width: 800px;
+  /* max-width: 930px; */
   margin: 40px auto;
   padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
+  background-color: #ffecec;
+  border: 2px solid #ffd0d0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+
 }
 
 .productList ul {
+  display: flex;
+  flex-wrap: wrap;
   list-style: none;
   padding: 0;
   margin: 0;
+  gap: 1rem;
+  justify-content: center;
 }
 
 .productList li {
-  margin-bottom: 20px;
+  max-width: 320px;
+  background-color: white;
+  border-radius: 0.8rem;
+  overflow: hidden;
+
+  > img {
+    object-fit: contain;
+    width: 100%;
+    height: 300px;
+  }
+
+  > div {
+    padding: 1rem;
+  }
 }
 
 .productList h2 {
