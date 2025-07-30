@@ -1,0 +1,96 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 2rem;
+  margin-top: 32px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #0001;
+  padding: 20px;
+  position: relative;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: opacity 0.35s, transform 0.35s;
+}
+
+.cardRemoving {
+  opacity: 0.3;
+  transform: scale(0.96);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cardImg {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #eee;
+}
+
+.cardTitle {
+  margin: 0;
+}
+
+.cardPrice {
+  color: #1976d2;
+  font-weight: 600;
+}
+
+.cardDesc {
+  margin: 1rem 0;
+  font-size: 14px;
+  color: #444;
+  min-height: 60px;
+  max-height: 80px;
+  overflow: auto;
+}
+
+.cardCat {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.cardActions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.btnEdit {
+  flex: 1;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.btnDelete {
+  flex: 1;
+  background: #e53935;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.cardId {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 12px;
+  color: #bbb;
+}

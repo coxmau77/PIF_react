@@ -12,7 +12,8 @@ import ProtectedRoute from './components/Auth/ProtectedRoute';
 import RoleProtectedRoute from './components/Auth/RoleProtectedRoute';
 import SignUp from './pages/Auth/SignUp';
 import SignIn from './pages/Auth/SignIn';
-import Admin from './pages/Admin';
+import Admin from './pages/Admin/Admin';
+import ProductListAdmin from './pages/Admin/ProductListAdmin';
 
 function App() {
   return (
@@ -36,6 +37,11 @@ function App() {
             <Route path="/admin" element={
               <RoleProtectedRoute allowedRoles="admin">
                 <MainLayoutRoute element={<Admin />} />
+              </RoleProtectedRoute>
+            } />
+            <Route path="/admin/productos" element={
+              <RoleProtectedRoute allowedRoles="admin">
+                <MainLayoutRoute element={<ProductListAdmin />} />
               </RoleProtectedRoute>
             } />
             <Route path="*" element={<MainLayoutRoute element={<NotFound />} />} />
