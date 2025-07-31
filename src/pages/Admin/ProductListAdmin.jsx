@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../../components/Auth/AuthContext';
 import { Link, useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import styles from './ProductListAdmin.module.css';
 import menuStyles from './ProductListAdminMenu.module.css';
 
@@ -121,6 +122,10 @@ export default function ProductListAdmin() {
 
   return (
     <section style={{ maxWidth: 1200, margin: '2rem auto', padding: '0 1rem' }}>
+      <Helmet>
+        <title>Admin | Listado de productos</title>
+        <meta name="description" content="Panel de administración: gestiona, edita y elimina productos de la tienda." />
+      </Helmet>
       <h2>Listado de productos (admin)</h2>
       {/* Breadcrumb */}
       <nav className={menuStyles.breadcrumb} aria-label="breadcrumb">

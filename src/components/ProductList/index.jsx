@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import styles from './ProductList.module.css';
 import Button from '../Button';
 import ProductDetail from '../ProductDetail';
@@ -21,6 +22,10 @@ function ProductList({ addToCart }) {
 
     return (
         <>
+            <Helmet>
+                <title>Productos | PIF React</title>
+                <meta name="description" content="Explora nuestra lista de productos, consulta detalles y compra online. Productos de calidad, precios competitivos y envío rápido." />
+            </Helmet>
             <h1>Productos</h1>
             <p>Esta es una lista de productos obtenida de la Fake Store API. Puedes ver detalles de cada producto, incluyendo su imagen, título, categoría, calificación, descripción y precio. También puedes comprar los productos haciendo clic en el botón "Comprar ahora".</p>
             <div className={styles.productList}>
