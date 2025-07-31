@@ -1,11 +1,10 @@
-import React from 'react';
 
-function Button({ buttonText, onClick }) {
-    return (
-        <button onClick={onClick}>
-            {buttonText}
-        </button>
-    );
+// Botón reutilizable para acciones como 'Comprar ahora'.
+export default function Button({ buttonText, onClick, ...props }) {
+  return (
+    <button type="button" onClick={onClick} {...props}>
+      {buttonText}
+    </button>
+  );
 }
 
-export default Button;

@@ -14,6 +14,7 @@ import SignUp from './pages/Auth/SignUp';
 import SignIn from './pages/Auth/SignIn';
 import Admin from './pages/Admin/Admin';
 import ProductListAdmin from './pages/Admin/ProductListAdmin';
+import ProductForm from './components/ProductForm';
 
 function App() {
   return (
@@ -42,6 +43,11 @@ function App() {
             <Route path="/admin/productos" element={
               <RoleProtectedRoute allowedRoles="admin">
                 <MainLayoutRoute element={<ProductListAdmin />} />
+              </RoleProtectedRoute>
+            } />
+            <Route path="/admin/productos/nuevo" element={
+              <RoleProtectedRoute allowedRoles="admin">
+                <MainLayoutRoute element={<ProductForm />} />
               </RoleProtectedRoute>
             } />
             <Route path="*" element={<MainLayoutRoute element={<NotFound />} />} />
