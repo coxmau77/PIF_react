@@ -156,6 +156,8 @@ export default function ProductListAdmin() {
       {/* Barra de búsqueda */}
       <div className="mb-4">
         <input
+          id="admin-product-search"
+          name="admin-product-search"
           type="text"
           className="form-control form-control-lg"
           placeholder="Buscar por nombre, categoría o descripción..."

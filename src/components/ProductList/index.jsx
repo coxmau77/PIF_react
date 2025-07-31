@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet';
 import styles from './ProductList.module.css';
 import Button from '../Button';
 import ProductDetail from '../ProductDetail';
@@ -30,22 +29,17 @@ function ProductList({ addToCart }) {
 
     return (
         <>
-            <Helmet>
-                <title>Productos | PIF React</title>
-                <meta name="description" content="Explora nuestra lista de productos, consulta detalles y compra online. Productos de calidad, precios competitivos y envío rápido." />
-            </Helmet>
-            <h1>Productos</h1>
-            <p>Esta es una lista de productos obtenida de la Fake Store API. Puedes ver detalles de cada producto, incluyendo su imagen, título, categoría, calificación, descripción y precio. También puedes comprar los productos haciendo clic en el botón "Comprar ahora".</p>
-            <div className="mb-4">
-                <input
-                    type="text"
-                    className="form-control form-control-lg"
-                    placeholder="Buscar por nombre, categoría o descripción..."
-                    value={search}
-                    onChange={e => setSearch(e.target.value)}
-                    style={{ maxWidth: 400 }}
-                />
-            </div>
+            {/* Helmet eliminado temporalmente por incompatibilidad con React 19 */}
+            <input
+                id="product-search"
+                name="product-search"
+                type="text"
+                className="form-control form-control-lg"
+                placeholder="Buscar por nombre, categoría o descripción..."
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                style={{ maxWidth: 400 }}
+            />
             <div className={styles.productList}>
                 {loading ? (
                     <p>Cargando...</p>
