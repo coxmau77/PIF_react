@@ -15,6 +15,7 @@ export default function ProductListAdmin() {
   const [removingId, setRemovingId] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [search, setSearch] = useState('');
 
   // CRUD: obtener productos
   const fetchProductos = () => {
@@ -120,6 +121,13 @@ export default function ProductListAdmin() {
     { label: 'Agregar producto', to: '/admin/productos/nuevo' }
   ];
 
+  // Filtrado de productos
+  const productosFiltrados = productos.filter(p =>
+    p.nombre?.toLowerCase().includes(search.toLowerCase()) ||
+    p.categoria?.toLowerCase().includes(search.toLowerCase()) ||
+    p.descripcion?.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <section style={{ maxWidth: 1200, margin: '2rem auto', padding: '0 1rem' }}>
       <Helmet>
@@ -148,11 +156,23 @@ export default function ProductListAdmin() {
           </Link>
         ))}
       </nav>
-      {productos.length === 0 ? (
-        <p>No hay productos registrados.</p>
+
+      {/* Barra de búsqueda */}
+      <div className="mb-4">
+        <input
+          type="text"
+          className="form-control form-control-lg"
+          placeholder="Buscar por nombre, categoría o descripción..."
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          style={{ maxWidth: 400 }}
+        />
+      </div>
+      {productosFiltrados.length === 0 ? (
+        <p>No hay productos que coincidan con la búsqueda.</p>
       ) : (
         <div className={styles.grid}>
-          {productos.map(prod => (
+          {productosFiltrados.map(prod => (
             <div
               key={prod.id}
               className={[
