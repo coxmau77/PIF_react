@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import styles from './checkoutBtn.module.css';
+import styles from './checkOutBtn.module.css';
 
 /**
  * @param {Object} props
