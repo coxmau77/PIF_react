@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../../components/Auth/AuthContext';
 import { Link, useLocation } from 'react-router-dom';
-import styles from './ProductListAdmin.module.css';
 import menuStyles from './ProductListAdminMenu.module.css';
 
 const MOCKAPI_URL = 'https://68896f424c55d5c739526026.mockapi.io/api/v1/productos';
@@ -169,31 +168,29 @@ export default function ProductListAdmin() {
       {productosFiltrados.length === 0 ? (
         <p>No hay productos que coincidan con la búsqueda.</p>
       ) : (
-        <div className={styles.grid}>
-          {productosFiltrados.map(prod => (
-            <div
-              key={prod.id}
-              className={[
-                styles.card,
-                removingId === prod.id ? styles.cardRemoving : ''
-              ].join(' ')}
-            >
-              <div className={styles.cardHeader}>
-                <img src={prod.imagen} alt={prod.nombre} className={styles.cardImg} />
-                <div>
-                  <h3 className={styles.cardTitle}>{prod.nombre}</h3>
-                  <span className={styles.cardPrice}>${prod.precio}</span>
+        <div className="container">
+          <div className="row g-4">
+            {productosFiltrados.map(prod => (
+              <div key={prod.id} className="col-12 col-md-6 col-lg-4">
+                <div className="card h-100">
+                  <div className="card-header p-0 border-0 bg-transparent">
+                    <img src={prod.imagen} alt={prod.nombre} className="card-img-top" style={{ objectFit: 'contain', height: 220, background: '#f8f9fa' }} />
+                  </div>
+                  <div className="card-body d-flex flex-column">
+                    <h5 className="card-title">{prod.nombre}</h5>
+                    <span className="fw-bold text-success mb-2">${prod.precio}</span>
+                    <div className="mb-2 text-muted small">Categoría: {prod.categoria}</div>
+                    <div className="mb-2 card-text">{prod.descripcion}</div>
+                    <div className="mt-auto d-flex gap-2">
+                      <button onClick={() => openEdit(prod)} className="btn btn-outline-primary btn-sm">Editar</button>
+                      <button onClick={() => handleDelete(prod.id)} className="btn btn-outline-danger btn-sm">Eliminar</button>
+                    </div>
+                    <div className="text-end text-secondary small mt-2">ID: {prod.id}</div>
+                  </div>
                 </div>
               </div>
-              <div className={styles.cardDesc}>{prod.descripcion}</div>
-              <div className={styles.cardCat}>Categoría: {prod.categoria}</div>
-              <div className={styles.cardActions}>
-                <button onClick={() => openEdit(prod)} className={styles.btnEdit}>Editar</button>
-                <button onClick={() => handleDelete(prod.id)} className={styles.btnDelete}>Eliminar</button>
-              </div>
-              <div className={styles.cardId}>ID: {prod.id}</div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       )}
 

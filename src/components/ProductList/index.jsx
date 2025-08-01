@@ -34,41 +34,42 @@ function ProductList({ addToCart }) {
                 id="product-search"
                 name="product-search"
                 type="text"
-                className="form-control form-control-lg"
+                className="form-control form-control-lg mb-4"
                 placeholder="Buscar por nombre, categoría o descripción..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
                 style={{ maxWidth: 400 }}
             />
-            <div className={styles.productList}>
+            <div className="container">
                 {loading ? (
                     <p>Cargando...</p>
+                ) : filteredProducts.length === 0 ? (
+                    <p>No hay productos que coincidan con la búsqueda.</p>
                 ) : (
-                    <ul>
-                        {filteredProducts.length === 0 ? (
-                            <li>No hay productos que coincidan con la búsqueda.</li>
-                        ) : (
-                            filteredProducts.map(product => (
-                                <li key={product.id}>
+                    <div className="row g-4">
+                        {filteredProducts.map(product => (
+                            <div key={product.id} className="col-12 col-md-6 col-lg-4">
+                                <div className="card h-100">
                                     <img
                                         src={product.image}
                                         alt={product.title}
-                                        style={{ cursor: 'pointer' }}
+                                        className="card-img-top"
+                                        style={{ cursor: 'pointer', objectFit: 'contain', height: 220, background: '#f8f9fa' }}
                                         onClick={() => setSelectedProduct(product)}
                                     />
-                                    <div>
-                                        <h2>
+                                    <div className="card-body d-flex flex-column">
+                                        <h5 className="card-title">
                                             {product.title.split(' ').slice(0, 6).join(' ')}
                                             {product.title.split(' ').length > 6 ? '...' : ''}
-                                        </h2>
-                                        <span>{product.category}</span> <br />
-                                        <span>{product.rating.rate} - ({product.rating.count})</span>
-                                        <p>
+                                        </h5>
+                                        <span className="text-muted small">{product.category}</span>
+                                        <span className="text-warning small mb-2">{product.rating.rate} ★ ({product.rating.count})</span>
+                                        <p className="card-text">
                                             {product.description.split(' ').slice(0, 12).join(' ')}
                                             {product.description.split(' ').length > 12 ? '...' : ''}
                                         </p>
-                                        <p>Precio: ${product.price}</p>
-                                        <div style={{ display: 'flex', gap: 8 }}>
+                                        <p className="fw-bold">Precio: ${product.price}</p>
+                                        <div className="mt-auto d-flex gap-2">
                                             <Button
                                                 buttonText="Comprar ahora"
                                                 onClick={() => addToCart(product)}
@@ -76,10 +77,10 @@ function ProductList({ addToCart }) {
                                             <ProductDetailLink id={product.id} />
                                         </div>
                                     </div>
-                                </li>
-                            ))
-                        )}
-                    </ul>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 )}
             </div>
             {selectedProduct && (
