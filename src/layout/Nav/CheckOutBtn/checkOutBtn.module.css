@@ -5,3 +5,7 @@
     gap: .5rem;
     text-transform: uppercase;
 }
+
+.checkout {
+  background-color: red; /* Temporal, para test */
+}
