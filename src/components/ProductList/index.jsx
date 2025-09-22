@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import styles from './ProductList.module.css';
 import Button from '../Button';
-import ProductDetail from '../ProductDetail';
 import ProductDetailLink from './ProductDetailLink';
+import { useCart } from '../Cart/CartContext';
 
-function ProductList({ addToCart }) {
+function ProductList() {
+    const { addToCart } = useCart();
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [selectedProduct, setSelectedProduct] = useState(null);
     const [search, setSearch] = useState('');
 
     useEffect(() => {
@@ -54,8 +54,7 @@ function ProductList({ addToCart }) {
                                         src={product.image}
                                         alt={product.title}
                                         className="card-img-top"
-                                        style={{ cursor: 'pointer', objectFit: 'contain', height: 220, background: '#f8f9fa' }}
-                                        onClick={() => setSelectedProduct(product)}
+                                        style={{ objectFit: 'contain', height: 220, background: '#f8f9fa' }}
                                     />
                                     <div className="card-body d-flex flex-column">
                                         <h5 className="card-title">
@@ -83,9 +82,6 @@ function ProductList({ addToCart }) {
                     </div>
                 )}
             </div>
-            {selectedProduct && (
-                <ProductDetail product={selectedProduct} onClose={() => setSelectedProduct(null)} />
-            )}
         </>
     );
 }

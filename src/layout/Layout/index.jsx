@@ -1,6 +1,5 @@
 // src/layout/Layout/index.jsx
-import { Nav } from '../Nav';
-import { Footer } from '../Footer';
+import { Nav, Footer } from '../';
 
 export function Layout({ children, cartItems, cartOpen, setCartOpen, updateCartItemQuantity, removeFromCart, clearCart }) {
     return (

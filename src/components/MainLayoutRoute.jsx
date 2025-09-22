@@ -1,7 +1,8 @@
+import { Outlet } from 'react-router-dom';
 import { Layout } from '../layout';
 import { useCart } from './Cart/CartContext';
 
-export default function MainLayoutRoute({ element }) {
+export default function MainLayoutRoute() {
   const {
     cartItems,
     cartOpen,
@@ -9,14 +10,7 @@ export default function MainLayoutRoute({ element }) {
     updateCartItemQuantity,
     removeFromCart,
     clearCart,
-    addToCart
   } = useCart();
-
-  // Si el hijo es ProductList, le pasamos addToCart
-  const child =
-    element.type && element.type.name === 'ProductList'
-      ? { ...element, props: { ...element.props, addToCart } }
-      : element;
 
   return (
     <Layout
@@ -27,7 +21,7 @@ export default function MainLayoutRoute({ element }) {
       removeFromCart={removeFromCart}
       clearCart={clearCart}
     >
-      {child}
+      <Outlet />
     </Layout>
   );
 }
